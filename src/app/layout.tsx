@@ -38,7 +38,7 @@ export default async function Layout({ children }: LayoutProps): Promise<React.J
                 <I18nProvider language="en">
                   <ThemeProvider>
                     {children}
-                    <SettingsButton />
+                    
                     <Toaster position="bottom-right" />
                   </ThemeProvider>
                 </I18nProvider>

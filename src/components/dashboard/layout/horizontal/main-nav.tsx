@@ -36,6 +36,7 @@ import { Logo } from '@/components/core/logo';
 import { SearchDialog } from '@/components/dashboard/layout/search-dialog';
 import type { ColorScheme } from '@/styles/theme/types';
 
+import { authClient } from '@/lib/auth/custom/client';
 import { ContactsPopover } from '../contacts-popover';
 import { languageFlags, LanguagePopover } from '../language-popover';
 import type { Language } from '../language-popover';
@@ -113,15 +114,13 @@ export function MainNav({ color = 'evident', items = [] }: MainNavProps): React.
             spacing={2}
             sx={{ alignItems: 'center', flex: '1 1 auto', justifyContent: 'flex-end' }}
           >
-            <SearchButton />
-            <NotificationsButton />
-            <ContactsButton />
+   
             <Divider
               flexItem
               orientation="vertical"
               sx={{ borderColor: 'var(--MainNav-divider)', display: { xs: 'none', md: 'block' } }}
             />
-            <LanguageSwitch />
+           
             <UserButton />
           </Stack>
         </Box>
@@ -148,90 +147,19 @@ export function MainNav({ color = 'evident', items = [] }: MainNavProps): React.
   );
 }
 
-function SearchButton(): React.JSX.Element {
-  const dialog = useDialog();
-
-  return (
-    <React.Fragment>
-      <Tooltip title="Search">
-        <IconButton onClick={dialog.handleOpen} sx={{ display: { xs: 'none', md: 'inline-flex' } }}>
-          <MagnifyingGlassIcon color="var(--NavItem-icon-color)" />
-        </IconButton>
-      </Tooltip>
-      <SearchDialog onClose={dialog.handleClose} open={dialog.open} />
-    </React.Fragment>
-  );
-}
-
-function NotificationsButton(): React.JSX.Element {
-  const popover = usePopover<HTMLButtonElement>();
-
-  return (
-    <React.Fragment>
-      <Tooltip title="Notifications">
-        <Badge
-          color="error"
-          sx={{ '& .MuiBadge-dot': { borderRadius: '50%', height: '10px', right: '6px', top: '6px', width: '10px' } }}
-          variant="dot"
-        >
-          <IconButton onClick={popover.handleOpen} ref={popover.anchorRef}>
-            <BellIcon color="var(--NavItem-icon-color)" />
-          </IconButton>
-        </Badge>
-      </Tooltip>
-      <NotificationsPopover anchorEl={popover.anchorRef.current} onClose={popover.handleClose} open={popover.open} />
-    </React.Fragment>
-  );
-}
-
-function ContactsButton(): React.JSX.Element {
-  const popover = usePopover<HTMLButtonElement>();
-
-  return (
-    <React.Fragment>
-      <Tooltip title="Contacts">
-        <IconButton onClick={popover.handleOpen} ref={popover.anchorRef}>
-          <UsersIcon color="var(--NavItem-icon-color)" />
-        </IconButton>
-      </Tooltip>
-      <ContactsPopover anchorEl={popover.anchorRef.current} onClose={popover.handleClose} open={popover.open} />
-    </React.Fragment>
-  );
-}
-
-function LanguageSwitch(): React.JSX.Element {
-  const { i18n } = useTranslation();
-  const popover = usePopover<HTMLButtonElement>();
-  const language = (i18n.language || 'en') as Language;
-  const flag = languageFlags[language];
-
-  return (
-    <React.Fragment>
-      <Tooltip title="Language">
-        <IconButton
-          onClick={popover.handleOpen}
-          ref={popover.anchorRef}
-          sx={{ display: { xs: 'none', md: 'inline-flex' } }}
-        >
-          <Box sx={{ height: '24px', width: '24px' }}>
-            <Box alt={language} component="img" src={flag} sx={{ height: 'auto', width: '100%' }} />
-          </Box>
-        </IconButton>
-      </Tooltip>
-      <LanguagePopover anchorEl={popover.anchorRef.current} onClose={popover.handleClose} open={popover.open} />
-    </React.Fragment>
-  );
-}
-
-const user = {
-  id: 'USR-000',
-  name: 'Sofia Rivers',
-  avatar: '/assets/avatar.png',
-  email: 'sofia@devias.io',
-} satisfies User;
-
 function UserButton(): React.JSX.Element {
   const popover = usePopover<HTMLButtonElement>();
+const [user, setUser] = React.useState<User | null>(null);
+
+  React.useEffect(() => {
+    async function fetchUser() {
+      const { data } = await authClient.getUser();
+      if (data) setUser(data);
+    }
+    fetchUser();
+  }, []);
+
+  if (!user) return <Avatar src={'/assets/avatar-placeholder.png'} />; // or a placeholder avatar
 
   return (
     <React.Fragment>

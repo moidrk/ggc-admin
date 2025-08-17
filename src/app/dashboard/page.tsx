@@ -6,10 +6,9 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
-import { Plus as PlusIcon } from '@phosphor-icons/react/dist/ssr/Plus';
+
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
-import { config } from '@/config';
 import { Users as UsersIcon } from '@phosphor-icons/react/dist/ssr/Users';
 import { ListChecks as ListChecksIcon } from '@phosphor-icons/react/dist/ssr/ListChecks';
 import { Warning as WarningIcon } from '@phosphor-icons/react/dist/ssr/Warning';
@@ -71,55 +70,61 @@ export default function Page(): React.JSX.Element {
         {/* Header */}
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} sx={{ alignItems: 'flex-start' }}>
           <Box sx={{ flex: '1 1 auto' }}>
-            <Typography variant="h4">GGC Analytics</Typography>
+            <Typography variant="h4">GGC Live Analytics</Typography>
           </Box>
-          <div>
-            <Button startIcon={<PlusIcon />} variant="contained">
-              Export
-            </Button>
-          </div>
+
         </Stack>
 
         {/* Summary Section */}
-        <Grid container spacing={4}>
-          <Grid lg={3} sm={6} xs={12}>
-            <Summary
-              amount={analytics?.totalUsers ?? 0}
-              diff={30}
-              icon={UsersIcon}
-              title="Total Users"
-              trend="up"
-            />
-          </Grid>
-          <Grid lg={3} sm={6} xs={12}>
-            <Summary
-              amount={analytics?.subscribedUsers ?? 0}
-              diff={0}
-              icon={ListChecksIcon}
-              title="Subscribed Users"
-              trend="up"
-            />
-          </Grid>
-          <Grid lg={3} sm={6} xs={12}>
-            <Summary
-              amount={analytics?.notSubscribedUsers ?? 0}
-              diff={0}
-              icon={WarningIcon}
-              title="Not Subscribed"
-              trend="down"
-            />
-          </Grid>
-          <Grid lg={3} sm={6} xs={12}>
-            <Summary
-              amount={analytics?.totalSubscriptions ?? 0}
-              diff={0}
-              icon={BriefcaseIcon}
-              title="Total Subscriptions"
-              trend="up"
-            />
-          </Grid>
-        </Grid>
+      {/* Summary Section */}
+<Grid container spacing={4}>
+  <Grid lg={3} sm={6} xs={12}>
+    <Box sx={{ bgcolor: '#e8f5e9', borderRadius: 2, p: 2 }}> {/* light green */}
+      <Summary
+        amount={analytics?.totalUsers ?? 0}
+        diff={30}
+        icon={UsersIcon}
+        title="Total Users"
+        trend="up"
+      />
+    </Box>
+  </Grid>
+  <Grid lg={3} sm={6} xs={12}>
+    <Box sx={{ bgcolor: '#e3f2fd', borderRadius: 2, p: 2 }}> {/* light blue */}
+      <Summary
+        amount={analytics?.subscribedUsers ?? 0}
+        diff={0}
+        icon={ListChecksIcon}
+        title="Subscribed Users"
+        trend="up"
+      />
+    </Box>
+  </Grid>
+  <Grid lg={3} sm={6} xs={12}>
+    <Box sx={{ bgcolor: '#ffebee', borderRadius: 2, p: 2 }}> {/* light red */}
+      <Summary
+        amount={analytics?.notSubscribedUsers ?? 0}
+        diff={0}
+        icon={WarningIcon}
+        title="Not Subscribed"
+        trend="down"
+      />
+    </Box>
+  </Grid>
+  <Grid lg={3} sm={6} xs={12}>
+    <Box sx={{ bgcolor: '#fff3e0', borderRadius: 2, p: 2 }}> {/* light orange */}
+      <Summary
+        amount={analytics?.totalSubscriptions ?? 0}
+        diff={0}
+        icon={BriefcaseIcon}
+        title="Total Subscriptions"
+        trend="up"
+      />
+    </Box>
+  </Grid>
+</Grid>
 
+       
         {/* Chart Section */}
         <Grid container spacing={4}>
           <Grid lg={6} xs={12}>

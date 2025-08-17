@@ -27,7 +27,7 @@ import { NotificationsPopover } from '../notifications-popover';
 import { SearchDialog } from '../search-dialog';
 import { UserPopover } from '../user-popover/user-popover';
 import { authClient } from '@/lib/auth/custom/client';
-// import { UserButton } from '../user-button';
+
 export interface MainNavProps {
   items: NavItemConfig[];
 }

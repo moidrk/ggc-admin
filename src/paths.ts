@@ -8,7 +8,7 @@ export const paths = {
     custom: {
       signIn: '/auth/custom/sign-in',
       signUp: '/auth/custom/sign-up',
-      resetPassword: '/auth/custom/reset-password',
+     
     }
   },
   dashboard: {

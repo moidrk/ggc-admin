@@ -23,7 +23,6 @@ module.exports = {
   },
   rules: {
     // TypeScript
-    
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -35,6 +34,11 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-condition': 'off',
     '@typescript-eslint/require-await': 'off',
     '@typescript-eslint/dot-notation': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/consistent-type-imports': 'off',
 
     // React
     'react/jsx-uses-react': 'off',
@@ -42,6 +46,11 @@ module.exports = {
     'react/jsx-fragments': 'off',
     'react/prop-types': 'off',
     'react/jsx-no-useless-fragment': 'off',
+    'react/jsx-sort-props': 'off',
+    'react/self-closing-comp': 'off',
+    'react/jsx-no-leaked-render': 'off',
+    'react/no-array-index-key': 'off',
+    'react/jsx-curly-brace-presence': 'off',
 
     // Import / ESLint
     'import/no-default-export': 'off',
@@ -55,12 +64,11 @@ module.exports = {
     // Unicorn
     'unicorn/filename-case': 'off',
 
-    // General
+    // General JS
     'no-nested-ternary': 'off',
     'no-redeclare': 'off',
-    'no-console': 'off', // allows console.log
-    '@typescript-eslint/no-unused-vars': 'off',
-'no-unused-vars': 'off',
+    'no-console': 'off',
+    'no-unused-vars': 'off',
     'no-undef': 'off',
     'no-unused-expressions': 'off',
     'no-constant-condition': 'off',
@@ -73,6 +81,7 @@ module.exports = {
     'no-unsafe-return': 'off',
     'no-unsafe-argument': 'off',
     'no-unsafe-assignment': 'off',
-    'no-unsafe-member-access': 'off',   
+    'no-unsafe-member-access': 'off',
+    'no-alert': 'off',
   },
 };

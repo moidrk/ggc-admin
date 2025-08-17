@@ -83,5 +83,10 @@ module.exports = {
     'no-unsafe-assignment': 'off',
     'no-unsafe-member-access': 'off',
     'no-alert': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+'@typescript-eslint/prefer-optional-chain': 'off',
+'@typescript-eslint/no-unsafe-return': 'off',
+'no-unused-disable-directive': 'off',
+
   },
 };

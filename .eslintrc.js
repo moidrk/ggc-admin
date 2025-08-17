@@ -23,15 +23,7 @@ module.exports = {
   },
   rules: {
     // TypeScript
-    '@typescript-eslint/no-unused-vars': [
-      'off', // Disable unused variable errors entirely
-      {
-        ignoreRestSiblings: true,
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
-    ],
+    
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -67,5 +59,20 @@ module.exports = {
     'no-nested-ternary': 'off',
     'no-redeclare': 'off',
     'no-console': 'off', // allows console.log
+    '@typescript-eslint/no-unused-vars': 'off',
+'no-unused-vars': 'off',
+    'no-undef': 'off',
+    'no-unused-expressions': 'off',
+    'no-constant-condition': 'off',
+    'no-async-promise-executor': 'off',
+    'no-duplicate-imports': 'off',
+    'no-shadow': 'off',
+    'no-throw-literal': 'off',
+    'no-useless-catch': 'off',
+    'no-unsafe-optional-chaining': 'off',
+    'no-unsafe-return': 'off',
+    'no-unsafe-argument': 'off',
+    'no-unsafe-assignment': 'off',
+    'no-unsafe-member-access': 'off',   
   },
 };

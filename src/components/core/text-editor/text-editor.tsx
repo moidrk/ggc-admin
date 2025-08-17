@@ -25,7 +25,7 @@ export interface TextEditorProps {
  * ```ts
  * <TextEditor
  *   onUpdate={({ editor }) => {
- *     console.log(editor.getHTML());
+ 
  *   }}
  * />
  * ```

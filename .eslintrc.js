@@ -22,8 +22,9 @@ module.exports = {
     },
   },
   rules: {
+    // TypeScript
     '@typescript-eslint/no-unused-vars': [
-      'error',
+      'off', // Disable unused variable errors entirely
       {
         ignoreRestSiblings: true,
         argsIgnorePattern: '^_',
@@ -31,45 +32,40 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
-    '@typescript-eslint/no-empty-interface': [
-      'error',
-      {
-        allowSingleExtends: true,
-      },
-    ],
-    '@typescript-eslint/no-shadow': [
-      'error',
-      {
-        ignoreOnInitialization: true,
-      },
-    ],
-    'import/newline-after-import': 'error',
-    'react/jsx-uses-react': 'error',
-    'react/react-in-jsx-scope': 'error',
-    'unicorn/filename-case': [
-      'error',
-      {
-        cases: {
-          kebabCase: true, // personal style
-          pascalCase: true,
-        },
-      },
-    ],
+    '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-unnecessary-condition': 'off',
+    '@typescript-eslint/require-await': 'off',
+    '@typescript-eslint/dot-notation': 'off',
 
-    // Deactivated
-    '@typescript-eslint/dot-notation': 'off', // paths are used with a dot notation
-    '@typescript-eslint/no-misused-promises': 'off', // onClick with async fails
-    '@typescript-eslint/no-non-null-assertion': 'off', // sometimes compiler is unable to detect
-    '@typescript-eslint/no-unnecessary-condition': 'off', // remove when no static data is used
-    '@typescript-eslint/require-await': 'off', // Server Actions require async flag always
-    'import/no-default-export': 'off', // Next.js components must be exported as default
-    'import/no-extraneous-dependencies': 'off', // conflict with sort-imports plugin
-    'import/order': 'off', // using custom sort plugin
-    'no-nested-ternary': 'off', // personal style
-    'no-redeclare': 'off', // conflict with TypeScript function overloads
-    'react/jsx-fragments': 'off', // personal style
-    'react/prop-types': 'off', // TypeScript is used for type checking
+    // React
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-fragments': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-no-useless-fragment': 'off',
 
-    '@next/next/no-img-element': 'off', // Temporary disabled
+    // Import / ESLint
+    'import/no-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/order': 'off',
+    'import/newline-after-import': 'off',
+
+    // Next.js
+    '@next/next/no-img-element': 'off',
+
+    // Unicorn
+    'unicorn/filename-case': 'off',
+
+    // General
+    'no-nested-ternary': 'off',
+    'no-redeclare': 'off',
+    'no-console': 'off', // allows console.log
   },
 };

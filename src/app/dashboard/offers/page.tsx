@@ -6,7 +6,7 @@ import {
     getAllDiscounts,
     createOrUpdateDiscount,
     removeDiscount,
-} from "@/services/adminStripe";
+} from "@/services/admin-stripe";
 
 import {
     Box,

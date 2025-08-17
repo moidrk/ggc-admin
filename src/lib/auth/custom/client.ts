@@ -26,8 +26,7 @@ class AuthClient {
       // Save token + user in localStorage
       localStorage.setItem('auth-token', data.accessToken);
 
-      console.log('User data:', data.accessToken);
-      console.log(':)))',localStorage.getItem('auth-token'));
+
       localStorage.setItem('auth-user', JSON.stringify(data.result));
 
       return {};

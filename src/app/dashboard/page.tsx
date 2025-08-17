@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 import { Users as UsersIcon } from '@phosphor-icons/react/dist/ssr/Users';
@@ -41,18 +41,19 @@ export default function Page(): React.JSX.Element {
     })();
   }, []);
 
-  if (loading) {
-    return (
-      <Box sx={{ p: 4 }}>
-        <Typography>Fetching Hot Updates...</Typography>
-      </Box>
-    );
-  }
+if (loading) {
+  return (
+    <Box sx={{ p: 4, display: 'flex', alignItems: 'center', gap: 2 }}>
+      <CircularProgress size={24} />
+      <Typography>Fetching Live Updates...</Typography>
+    </Box>
+  );
+}
 
   if (error) {
     return (
       <Box sx={{ p: 4 }}>
-        <Typography color="error">{error}</Typography>
+        <Typography color="error">Oops! Kindly Refresh</Typography>
       </Box>
     );
   }
@@ -145,7 +146,7 @@ export default function Page(): React.JSX.Element {
                     label
                   >
                     <Cell key="subscribed" fill="#4caf50" />
-                    <Cell key="not-subscribed" fill="#f44336" />
+                    <Cell key="not-subscribed" fill="#de3024" />
                   </Pie>
                   <Tooltip />
                 </PieChart>

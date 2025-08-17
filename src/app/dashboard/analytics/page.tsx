@@ -13,7 +13,7 @@ import { UsersPagination } from './components/users-pagination';
 import { UsersTable, type User } from './components/users-table';
 import { Plus as PlusIcon } from '@phosphor-icons/react/dist/ssr/Plus';
 import { Button } from '@mui/material';
-export const metadata = { title: `User Analytics | Dashboard | ${config.site.name}` } satisfies Metadata;
+export const metadata = { title: `User Analytics | ${config.site.name}` } satisfies Metadata;
 
 const users: User[] = [
   {

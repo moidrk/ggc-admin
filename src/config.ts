@@ -33,7 +33,7 @@ export interface Config {
 export const config = {
   site: {
     name: 'GGC Admin Panel',
-    description: 'Admin panel for GGC',
+    description: 'Manage GGC with ease',
     colorScheme: 'light',
     themeColor: '#0b0909ff',
     primaryColor: 'tomatoOrange',

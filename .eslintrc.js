@@ -87,6 +87,7 @@ module.exports = {
 '@typescript-eslint/prefer-optional-chain': 'off',
 '@typescript-eslint/no-unsafe-return': 'off',
 'no-unused-disable-directive': 'off',
+'no-unused-disable-directive': 'off',
 
   },
 };
